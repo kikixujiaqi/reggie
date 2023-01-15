@@ -1,0 +1,37 @@
+1.配置pom.xml
+  JDK:1.8
+  spring-boot-starter-parent 是所有 Spring Boot 项目的父级依赖，它被称为 Spring Boot 的版本仲裁中心，可以对项目内的部分常用依赖进行统一管理。
+  spring-boot-starter 整合了各种可能用到的依赖,SpringBoot就能自动扫描到要加载的信息并启动相应的默认配置。
+  spring-boot-starter-test 整合了各种与测试相关的依赖项。
+  spring-boot-starter-web 为我们提供了嵌入的 Servlet 容器以及 SpringMVC 的依赖，并为 Spring MVC 提供了大量自动配置，可以适用于大多数 Web 开发场景。
+  mybatis-plus-boot-starter 为 Mybatis-Plus 快速集成 spring-boot 简化配置而生，让 mybatis 兼具了 hibernate 的优点。
+  lombok 通过添加注解的方式，不需要为类编写getter或equals方法，同时可以自动化日志变量。
+  Fastjson 是一个Java库，可以将Java对象转换为JSON格式，当然它也可以将JSON字符串转换为Java对象。
+  commons-lang 主要是提供一些基础的、通用的操作和处理，如自动生成toString()的结果、自动实现hashCode()和equals()方法、数组操作、枚举、日期和时间的处理等等。
+  mysql-connector-java 实现了JDBC，为使用java开发的程序提供连接，方便java程序操作数据库。
+  druid-spring-boot-starter 在Spring Boot项目中轻松集成Druid数据库连接池和监控。
+  spring-boot-maven-plugin 能够以Maven的方式为应用提供Spring Boot的支持，即为Spring Boot应用提供了执行Maven操作的可能。
+2.编写启动类reggieApplication
+  @SpringBootApplication 一般放在项目的一个启动类上，用来把启动类注入到容器中，用来定义容器扫描的范围，用来加载classpath环境中一些bean。
+  @Slf4j 我们只需要在类前面添加注解@Slf4j，即可使用log日志的功能了。
+3.编写静态映射类WebMvcConfig
+  继承WebMvcConfigurationSupport类重写addResourceHandlers方法完成静态映射，避免静态资源被拦截。
+4.编写实体类Employee
+  @Data 注在类上，提供类的get、set、equals、hashCode、canEqual、toString方法。基于lombok使用。
+5.编写mapper层接口EmployeeMapper
+  mapper层直接与数据库打交道(执行SQL语句)，接口提供给service层。
+  @Mapper 扫描此包
+  继承BaseMapper 通过让自己的mapper继承BaseMapper这个类就可以不用自己写sql就能直接调用一些基础的sql方法。
+6.编写Service层EmployeeServiceImpl类和EmployeeService接口
+  接口继承IService IService的使用需要另外两个接口的配合：baseMapper和ServiceImpl
+  类继承ServiceImpl实现EmployeeService
+7.编写泛型R类
+8.编写Controller类EmployeeController
+  登录功能、退出功能、增加员工功能。
+9.编写过滤器LoginCheckFilter类
+  只放行满足要求的资源。
+10.编写全局异常处理类GlobalExceptionHandler。
+11.解决雪花数和长整型数精度不同的问题。
+12.验证同一线程内的几个操作并编写自动填充类。
+13.按Employee相同方式编写Category对应的类和操作。
+
