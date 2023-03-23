@@ -78,7 +78,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping
-    public R<String> save(HttpServletRequest request,@RequestBody Employee employee){
+    public R<String> save(HttpServletRequest request, @RequestBody Employee employee){
         log.info("新增员工，员工信息：{}",employee.toString());
 
         //设置初始密码123456，需要进行md5加密处理
